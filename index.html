@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Simple Mechanics</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>  
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Web8.json", {onProgress: UnityProgress});
+
+
+        function CallBuildItOnUnity () // do not change this function name, refrenced inside unity.
+        {
+
+          
+          var obj =  {coordinates:[17.49479994048269,78.39959990233181,17.494848545162675,78.3999190852046,17.494623748408795,78.39998580515385,17.494623748408795,78.39967735111713],offsets:[3,4,4,4],height:[3,5],isPremium:false,location:"Hyderabad",area:762.62427,isComercial:false,genome:6.0};
+
+          var myJSON = JSON.stringify(obj);
+
+          window.alert (myJSON);
+
+          gameInstance.SendMessage("Multi-Floor Holder", "BuildIt", myJSON)
+        }
+
+        function footPrintAreaFromUnity (value) // this function is going to give foot print value
+        {
+          window.alert ("foot print area is " + value);
+        }
+
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Simple Mechanics</div>
+      </div>
+    </div>
+  </body>
+</html>
